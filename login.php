@@ -1,0 +1,30 @@
+
+<html>
+
+  <head>
+    <title>Logar</title>
+  </head>
+  
+  <body>
+    <h1> Sistema de gerenciamento de itens escolares - SAEP</h1>
+
+    <form method="post" action="verificaLogin.php" id="formlogin" name="formlogin" >
+      <h3>Faça o login:</h3>
+				<label> Login: </label>
+        <input type="text" name="login" required>
+        <br />
+				
+				<label>Senha: </label>
+				<input type="password" name="senha" id="senha" size="20">
+        
+      <center>
+      <br>
+			<input type="submit" value="LOGAR"  />
+
+        <p>Não possui conta? <a href="cadastroUsuario.php">Cadastre-se.</a></p>
+				</center>
+		</form>
+
+    <a href="index.php">Voltar</a>
+  </body>
+</html>
