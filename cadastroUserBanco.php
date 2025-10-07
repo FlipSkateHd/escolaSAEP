@@ -5,7 +5,7 @@ session_start();
 $IP = "127.0.0.1";
 $usuarioDB = "root";
 $senhaDB = "";
-$database = "escolaSAEP";
+$database = "escola_db";
 $tabela = "usuario";
 
 $conexao = new mysqli($IP, $usuarioDB, $senhaDB, $database);
