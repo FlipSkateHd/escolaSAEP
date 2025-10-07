@@ -19,7 +19,7 @@
       <h1>Bem vindo(a)! ' . $_SESSION['nome'] . '</h1>
         <br>
           <br>
-            <a href="cadastroProdutoroduto.php">Cadastrar um novo produto</a>
+            <a href="produtos.php">Cadastrar um novo produto</a>
             <a href="gestaoEstoque.php">Gestão de estoque</a>
             <a href="sair.php">Sair da conta</a>
       </div>
