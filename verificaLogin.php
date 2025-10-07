@@ -42,7 +42,4 @@ if ($resultado->num_rows != 0)   {
 
 }
 
-
-  echo($conexao);
-
 ?>

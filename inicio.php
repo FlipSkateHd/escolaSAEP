@@ -7,15 +7,14 @@
     
     <?php
     session_start();
-  if(empty(_SESSION['idUser'])){
-  header('Location: index.php')
+  if(empty($_SESSION['idUser'])){
+  echo'<script>prompt("por favor, efetue o login")</script>';
+  header('Location: index.php');
 
 } else {
-  echo '<h1>bem vindo!<h1>'
+  echo '<h1>bem vindo!<h1>';
 
-}
-
-?>
+}?>
 
 
   </body>
