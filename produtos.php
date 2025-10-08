@@ -64,6 +64,8 @@ if (empty($_SESSION['idUser'])) { // Tratamento de erros de acesso sem credencia
     }
 
     echo '</table>';
+
+    echo '<br> <a href="cadastroProduto.php">Cadastrar novo produto</a>';
     echo '<br> <a href="inicio.php">Voltar ao menu</a>';
   } else {
     echo "Erro ao consultar: " . $conexao->error;
