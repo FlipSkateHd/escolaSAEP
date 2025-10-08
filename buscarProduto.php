@@ -7,6 +7,8 @@
   }
 </style>
 
+
+
 <?php
 session_start();
 
@@ -26,22 +28,18 @@ if ($conexao->connect_errno) { // Tratamento de erros de conexão mysql
 }
 
 if (empty($_SESSION['idUser'])) { // Tratamento de erros de acesso sem credenciais
+
   echo "<p style='color: red; font-weight: bold;'>Login ou senha inválidos. Tente novamente.</p>";
   echo "<p><a href='login.html'>Voltar para o login</a></p>";
 } else {
-  $sql = "SELECT nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela";
+  $busca = $_POST['busca'];
+
+  $sql = "SELECT nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE nome LIKE '%$busca%' ";
+
   $resultado = $conexao->query($sql);
 
   if ($resultado->num_rows == true) {
-    // Exibição do site + base para a tabela
     echo '
-<h2>Buscar um produto</h2>
-<form method="post" action="buscarProduto.php" name="formBuscar">
-  <input type="text" name="busca" />
-  <input type="submit" value="Pesquisar" />
-</form>
-<br><br><br>
-<h2>Tabela de produtos</h2>
 <table>
     <tr>
 <th>Produto</th>
@@ -51,6 +49,7 @@ if (empty($_SESSION['idUser'])) { // Tratamento de erros de acesso sem credencia
 <th>quantidade minima</th>
 
 </tr>';
+
 
     while ($row = $resultado->fetch_assoc()) { // Código para exibir os produtos:
 
@@ -64,11 +63,13 @@ if (empty($_SESSION['idUser'])) { // Tratamento de erros de acesso sem credencia
     }
 
     echo '</table>';
-    echo '<br> <a href="inicio.php">Voltar ao menu</a>';
+    echo '<br> <a href="produtos.php">Voltar</a>';
   } else {
     echo "Erro ao consultar: " . $conexao->error;
   }
 }
+
+
 
 ?>
 
