@@ -16,10 +16,10 @@ $nome = $_POST['nome'];
 $caracteristicas = $_POST['caracteristicas'];
 $quantidade = $_POST['quantidade'];
 $medida = $_POST['medida'];
-$quant_minima = $_POST['quant_minima'];
+$quantidade_min = $_POST['quantidade_min'];
 
-$sql = "INSERT INTO `{$tabela}` (`nome`, `caracteristicas`, `quantidade`, `medida`, `quant_minima`) 
-VALUES ('{$nome}', '{$quantidade}', '{$medida}', '{$quant_minima}'); ";
+$sql = "INSERT INTO `{$tabela}` (`nome`, `caracteristicas`, `quantidade`, `medida`, `quantidade_min`) 
+VALUES ('{$nome}', '{$caracteristicas}', '{$quantidade}', '{$medida}', '{$quantidade_min}'); ";
 
 $resposta = $conexao->query($sql);
 

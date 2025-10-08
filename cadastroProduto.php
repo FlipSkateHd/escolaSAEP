@@ -20,11 +20,12 @@
     <input type="text" name="medida">
     <br><br>
     Quantidade mínima:
-    <input type="number" name="quant_minima">
+    <input type="number" name="quantidade_min">
 
 
     <input type="submit" value="Cadastrar">
   </form>
+  <a href="produtos.php">Voltar</a:href>
 </body>
 
 
