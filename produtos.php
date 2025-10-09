@@ -50,7 +50,7 @@ $tabela = 'produtos';
 
     echo '</table>';
 
-    echo '<br> <a href="cadastroProduto.php">Cadastrar novo produto</a>';
+
     echo '<br> <a href="inicio.php">Voltar ao menu</a>';
   } else {
     echo "Erro ao consultar: " . $conexao->error;
