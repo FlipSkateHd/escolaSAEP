@@ -15,5 +15,5 @@ $resposta = $conexao->query($sql);
 
 if ($resposta === true) {
   echo 'Cadastrado com sucesso!';
-  echo "<a href='cadastroProduto.php'.php>Voltar</a>";
+  echo "<a href='entradaProduto.php'.php>Voltar</a>";
 }

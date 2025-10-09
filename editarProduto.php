@@ -17,14 +17,14 @@ include 'verificaSessao.php';
 $tabela = "produtos";
 
 
-  $id = $_GET['id'];
+$id = $_GET['id'];
 
-  $sql = "SELECT id, nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE id = $id ";
+$sql = "SELECT id, nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE id = $id ";
 
-  $resultado = $conexao->query($sql);
+$resultado = $conexao->query($sql);
 
-  if ($resultado->num_rows == true) {
-    echo '
+if ($resultado->num_rows == true) {
+  echo '
 <table>
     <tr>
 <th>Produto</th>
@@ -36,22 +36,22 @@ $tabela = "produtos";
 </tr>';
 
 
-    while ($row = $resultado->fetch_assoc()) { // Código para exibir os produtos:
+  while ($row = $resultado->fetch_assoc()) { // Código para exibir os produtos:
 
-      echo '<tr>';
-      echo '<td> ' . $row['nome'] . '</td>';
-      echo '<td> ' . $row['caracteristicas'] . '</td>';
-      echo '<td> ' . $row['quantidade'] . '</td>';
-      echo '<td> ' . $row['medida'] . '</td>';
-      echo '<td> ' . $row['quantidade_min'] . '</td>';
-      echo '</tr>';
-    }
-
-    echo '</table>';
-    echo '<br> <a href="gestaoEstoque.php">Voltar</a>';
-  } else {
-    echo "Erro ao consultar: " . $conexao->error;
+    echo '<tr>';
+    echo '<td> ' . $row['nome'] . '</td>';
+    echo '<td> ' . $row['caracteristicas'] . '</td>';
+    echo '<td> ' . $row['quantidade'] . '</td>';
+    echo '<td> ' . $row['medida'] . '</td>';
+    echo '<td> ' . $row['quantidade_min'] . '</td>';
+    echo '</tr>';
   }
+
+  echo '</table>';
+  echo '<br> <a href="gestaoEstoque.php">Voltar</a>';
+} else {
+  echo "Erro ao consultar: " . $conexao->error;
+}
 
 
 
