@@ -19,7 +19,7 @@ $tabela = "produtos";
 
   $id = $_GET['id'];
 
-  $sql = "SELECT id, nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE nome = $id ";
+  $sql = "SELECT id, nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE id = $id ";
 
   $resultado = $conexao->query($sql);
 
@@ -48,7 +48,7 @@ $tabela = "produtos";
     }
 
     echo '</table>';
-    echo '<br> <a href="produtos.php">Voltar</a>';
+    echo '<br> <a href="gestaoEstoque.php">Voltar</a>';
   } else {
     echo "Erro ao consultar: " . $conexao->error;
   }
