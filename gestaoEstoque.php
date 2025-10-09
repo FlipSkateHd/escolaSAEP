@@ -48,8 +48,7 @@ if ($resultado->num_rows == true) {
 
   echo '</table>';
 
-  echo '<br> <a href="entradaProduto.php">Cadastrar entrada de produtos </a>';
-  echo '<br> <a href="saidaProduto.php">Cadastrar saída de produtos </a> </br>';
+  echo '<br> <a href="entradaProduto.php">Cadastrar produtos </a> <br>';
   echo '<br> <a href="inicio.php">Voltar ao menu</a>';
 } else {
   echo "Erro ao consultar: " . $conexao->error;

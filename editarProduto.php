@@ -35,7 +35,6 @@ if ($resultado->num_rows == true) {
 
 </tr>';
 
-
   while ($row = $resultado->fetch_assoc()) { // Código para exibir os produtos:
 
     echo '<tr>';
@@ -48,7 +47,26 @@ if ($resultado->num_rows == true) {
   }
 
   echo '</table>';
-  echo '<br> <a href="gestaoEstoque.php">Voltar</a>';
+  echo '
+    <br><br>
+    <h4>Registrar movimentação:</h4> </br>
+    <form method="post" action=processaMovimento.php?id=' . $id . '>
+
+      <input type="radio" name="escolha" size="20" value= "1" required> <label> Empréstimo </>
+ 
+      <input type="radio" name="escolha" size="20" value="0" required>  <label> Devolução </> <br/>
+      Quantidade: <input type="number" name="quantidadeMov"> <br>
+    
+    Data de Devolução: <input name="dataDevolucao" type="date"> <br>
+
+    Data de Empréstimo:<input name="dataEmprestimo" type="date"> <br>
+    <input type="submit" value="Enviar">
+  </form>
+
+
+';
+
+  echo '<br><br> <a href="gestaoEstoque.php">Voltar</a>';
 } else {
   echo "Erro ao consultar: " . $conexao->error;
 }
