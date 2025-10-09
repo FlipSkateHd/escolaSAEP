@@ -44,7 +44,7 @@ if ($escolha == 1) { // Emprestimo
     die('Não foi possível registrar o empréstimo.');
   }
 
-  echo 'Emprestimo Registrado!';
+  echo 'Emprestimo Registrado! <br> <a href="gestaoEstoque.php">Voltar</a> ';
 } elseif ($escolha == 1) { // Devolução
 
 
