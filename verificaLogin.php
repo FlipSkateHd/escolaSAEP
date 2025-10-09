@@ -1,19 +1,9 @@
 <?php
 session_start();
 
-$IP = "127.0.0.1";
-$usuarioDB = "root";
-$senhaDB = "";
-
-$database = "escola_db";
+include 'conexao.php';
 $tabela = "usuario";
 
-$conexao = new mysqli($IP, $usuarioDB, $senhaDB, $database);
-
-if ($conexao->connect_errno) { // Tratamento de erros de conexão mysql
-  echo "Falha ao conectar-se ao Banco de dados: " . $conexao->connect_error;
-  exit();
-} else { // Inicio da verificação de login
   $login = $_POST['login'];
   $senha = $_POST['senha'];
 

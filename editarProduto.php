@@ -17,9 +17,9 @@ include 'verificaSessao.php';
 $tabela = "produtos";
 
 
-  $busca = $_POST['busca'];
+  $id = $_GET['id'];
 
-  $sql = "SELECT nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE nome LIKE '%$busca%' ";
+  $sql = "SELECT id, nome, caracteristicas, quantidade, medida, quantidade_min FROM  $tabela WHERE nome = $id ";
 
   $resultado = $conexao->query($sql);
 
@@ -52,6 +52,7 @@ $tabela = "produtos";
   } else {
     echo "Erro ao consultar: " . $conexao->error;
   }
+
 
 
 
