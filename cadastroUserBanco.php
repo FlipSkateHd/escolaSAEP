@@ -16,7 +16,7 @@ $sql = "INSERT INTO `{$tabela}` (`nome`, `login`, `senha`)
 
 if ($conexao->query($sql) === true) {
   echo "cadastrado com sucesso <br> </br>";
-  echo '<a href="index.php">Voltar</a>';
+  echo '<a href="index.html">Voltar</a>';
 } else {
   echo "Erro ao cadastrar: " . $conexao->error;
 }
