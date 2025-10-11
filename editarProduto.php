@@ -40,7 +40,8 @@ $sqlEmprestimos = "SELECT
 FROM emprestimos e
 JOIN itens_emprestimo ie ON e.id_emprestimo = ie.id_emprestimo
 JOIN produtos p ON ie.id_produto = p.id
-WHERE p.id = $id
+  WHERE p.id = $id 
+  AND e.status = 'pendente'
 ORDER BY e.data_emprestimo DESC";
 
 $resultEmprestimos = $conexao->query($sqlEmprestimos);
