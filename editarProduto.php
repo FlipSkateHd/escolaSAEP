@@ -95,7 +95,7 @@ if ($resultado && $resultado->num_rows > 0) {
       echo '<td>' . $emprestimo['quantidade_emprestada'] . '</td>';
       echo '<td>' . $emprestimo['dataEmprestimo'] . '</td>';
       echo '<td>' . $emprestimo['dataDevolucao'] . '</td>';
-      echo '<td> ' . '<a href="devolveProduto.php?id=' . $id . '">Devolver</a>';
+      echo '<td> ' . '<a href="devolveProduto.php?id=' . $emprestimo['idEmprestimo'] . '">Devolver</a>';
       echo '</tr>';
     }
 

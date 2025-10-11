@@ -42,7 +42,7 @@ if ($resultado->num_rows == true) {
     echo '<td> ' . $row['quantidade'] . '</td>';
     echo '<td> ' . $row['medida'] . '</td>';
     echo '<td> ' . $row['quantidade_min']  . '</td>';
-    echo '<td> ' . '<a href="editarProduto.php?id=' . $row['id'] . '">Editar</a>' . '<br> <a href="deletarProduto.php?id=' . $row['id'] . '">Deletar</a>' . '</td>'; // em construção
+    echo '<td> ' . '<a href="editarProduto.php?id=' . $row['id'] . '">Visualizar</a>' . '<br> <a href="deletarProduto.php?id=' . $row['id'] . '">Deletar</a>' . '</td>'; // em construção
     echo '</tr>';
   }
 
