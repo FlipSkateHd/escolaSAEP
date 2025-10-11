@@ -41,5 +41,8 @@ if (($quantidadeEstoque - $quantidadeMov) >= $quantidadeMin) {
   $conexao->query($sqlHistorico);
 
   header("Location:editarProduto.php?id=$idProduto");
+} else {
+  echo "Quantidade Mínima excedida! 
+<a href='editarProduto.php?id=$idProduto'>Voltar</a>";
 }
 ?>
