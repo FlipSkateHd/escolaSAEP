@@ -13,7 +13,7 @@ $sqlSelect = "SELECT
   e.data_devolucao AS dataDevolucao,
   p.nome AS nomeProduto,
   p.id as idProduto,
-  ie.quantidade_emprestada as quantidadeEmprestada
+  ie.quantidade_emprestada as quantidadeDevolvida
 
 FROM emprestimos e
 
@@ -28,17 +28,32 @@ WHERE e.id_emprestimo = $idEmprestimo;";
 $emprestimosResult = $conexao->query($sqlSelect);
 
 if ($emprestimo = $emprestimosResult->fetch_assoc()) {
+
   $idProduto = $emprestimo['idProduto'];
+  $idEmprestimo = $emprestimo['idEmprestimo'];
+  $dataEmprestimo = $emprestimo['dataEmprestimo'];
+  $dataDevolucao = $emprestimo['dataDevolucao'];
+  $quantidadeDevolvida = $emprestimo['quantidadeDevolvida'];
+
   // TABELA EMPRESTIMOS
   $sqlEmprestimo = "UPDATE emprestimos SET status = 'devolvido' WHERE id_emprestimo = $idEmprestimo ;";
   $conexao->query($sqlEmprestimo);
 
   // TABELA PRODUTOS
-  $quantidadeEmprestada = $emprestimo['quantidadeEmprestada'];
-  $sqlProdutos = "UPDATE produtos SET quantidade = quantidade + $quantidadeEmprestada WHERE id = $idProduto;";
+  $sqlProdutos = "UPDATE produtos SET quantidade = quantidade + $quantidadeDevolvida WHERE id = $idProduto;";
   $conexao->query($sqlProdutos);
 
   header("Location:editarProduto.php?id= $idProduto");
+
+
+  // TABELA HISTORICO 
+
+  $sqlHistorico = "INSERT INTO historico (id_usuario, id_produto, id_emprestimo, data_emprestimo, data_devolucao, quantidade, tipo_movimentacao, data_movimentacao)
+                   VALUES ($idUser, $idProduto, $idEmprestimo, '$dataEmprestimo', '$dataDevolucao', $quantidadeDevolvida, 'devolucao', CURDATE())";
+
+  $conexao->query($sqlHistorico);
+
+
 
   //fim
 } else {
